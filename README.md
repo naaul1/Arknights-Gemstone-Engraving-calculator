@@ -5,7 +5,7 @@ A calculator tool made for the minigame of Arknights' Pepe event. Codes are pack
 #### If you have a C++ compiler:
 - You know how.
 #### If not:
-- Go to [onlinegdb.com](onlinegdb.com)
+- Go to https://www.onlinegdb.com/
 - Choose "C++" as your language.
 - Enter the content of "main.cpp" into the editor.
 - Profit.
