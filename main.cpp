@@ -22,9 +22,9 @@ using IntVec = vector<int>;
 //
 // Line 40: class GemstoneCalculator {}
 //
-// Line 250: class CommandSystem {}
+// Line 700: class CommandSystem {}
 //
-// Line 400: int main {} 
+// Line 1000: int main {} 
 //
 //
 
@@ -71,7 +71,7 @@ public:
     vector<IntVec> m_card_level;
 
     //
-    long long m_cummulated_score{0};
+    long long m_cumulative_score{0};
     long long m_last_score{0};
     int m_workbenches{2};
     
@@ -455,7 +455,7 @@ public:
 
     void beginRun() {
         resetIntTable(m_gem_count);
-        m_cummulated_score = 0;
+        m_cumulative_score = 0;
         m_last_score = 0;
         m_workbenches = 6;
 
@@ -662,7 +662,7 @@ public:
     
     
     void printBasicInfo() {
-        cout << "+ Cummulated score: " << m_cummulated_score << '\n';
+        cout << "+ cumulative score: " << m_cumulative_score << '\n';
         cout << "+ Workbenches: " << m_workbenches << '\n';
         printCards();
     }
@@ -746,12 +746,12 @@ public:
             cout << "=== COMMAND LIST ===\n";
             cout << "\"newrun\": Reset all cards, scores, and workbenches.\n";
             cout << "\"newround\": Initialize a round with materials you enter.\n";
-            cout << "\"try\": Show result of a card combination you enter.\n";
+            cout << "\"try\": Show result of the card combination you enter.\n";
             cout << "\"sumbit\": Add the score of your last try this round to commulated score.\n";
             cout << '\n';
             cout << "\"setred\"/\"setteal\"/\"setpurple\"/\"setgold\": Set level for your red/teal/purple/gold cards.\n";
-            cout << "\"setmin\"/\"setmax\": Remove / max out all of your cards.";
-            cout << "\"setscore\"/\"setbenches\": Set cummulated_score/number_of_workbenches.\n";
+            cout << "\"setmin\"/\"setmax\": Remove / max out all of your cards.\n";
+            cout << "\"setscore\"/\"setbenches\": Set cumulative_score/number_of_workbenches.\n";
             cout << "\"gems\": Show your gemstones.\n";
             cout << "\"cards\": Show your cards.\n";
             cout << "\"help\": Show this command list.\n";
@@ -863,8 +863,8 @@ public:
                 cout << "Usage: setscore <value>\n";    
                 return;
             }
-            calc.m_cummulated_score = toNatural(args[0]);
-            cout << "Cummulated score: " << calc.m_cummulated_score << '\n';
+            calc.m_cumulative_score = toNatural(args[0]);
+            cout << "cumulative score: " << calc.m_cumulative_score << '\n';
         });
         
         
@@ -931,9 +931,9 @@ public:
         
         
         addCommand("submit", [&calc](ArgsVec) {
-            calc.m_cummulated_score += calc.m_last_score;
+            calc.m_cumulative_score += calc.m_last_score;
             cout << "Summited with score: " << calc.m_last_score << '\n';
-            cout << "Cummulated score: " << calc.m_cummulated_score << "\n";
+            cout << "cumulative score: " << calc.m_cumulative_score << "\n";
         });
         
         addCommand("gems", [&calc](ArgsVec) {
@@ -1004,56 +1004,6 @@ public:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 int main() {
     GemstoneCalculator calc;
     CommandSystem command_system(calc);
@@ -1073,4 +1023,5 @@ int main() {
     }
     
     return 0;
+
 }
